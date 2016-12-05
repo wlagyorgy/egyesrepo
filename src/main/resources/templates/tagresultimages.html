@@ -2,20 +2,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/style_2.css"/>
+
     <title>TemalabInsta</title>
+
 </head>
+
+
 <body>
-<h2> Result Photos fro tag search</h2>
-<form action="#" th:action="@{/main}" method="get">
-    <p>
-        <input type="submit" value="Back to main"/>
-    </p>
-</form>
-<table>
-    <tr th:each="image : ${images}">
-        <td th:utext="${image.url}"></td>
-        <td th:text="${image.photo.user.name}"> </td>
-    </tr>
-</table>
+<p align="center">
+<h2> Result Photos for tag search</h2>
+</p>
+
+<br>
+
+
+
+<div class="container">
+
+
+
+    <div class="row">
+        <div class=" col-xs-12 col-sm-6 col-md-4" th:each="image : ${images}">
+            <article class="photo-article">
+                <header>
+                    <h5 th:text="${image.photo.user.name}"></h5>
+                </header>
+
+                <div class="img-rounded" th:utext="${image.url}"></div>
+
+                 <div th:text="${image.photo.title}"></div>
+
+            </article>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
 </body>
 </html>
